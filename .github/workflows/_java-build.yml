@@ -49,7 +49,7 @@ on:
         value: ${{ jobs.build-and-push.outputs.registry }}
     secrets:
       AWS_ACCOUNT_ID:
-        required: true
+        required: false
       SEMGREP_APP_TOKEN:
         required: false
       NVD_API_KEY:
