@@ -277,3 +277,11 @@ jobs:
             "${{ steps.login-ecr.outputs.registry }}/${{ inputs.ecr-repository }}@${{ steps.push.outputs.digest }}"
         env:
           COSIGN_EXPERIMENTAL: "true"
+      - name: Cosign — Sign image with private key
+        run: |
+          IMAGE_REF="${{ steps.docker-buildx.outputs.image }}${{ steps.docker-build.outputs.digest }}"
+          cosign sign --yes "$IMAGE_REF"
+        env:
+          COSIGN_PRIVATE_KEY: ${{ secrets.COSIGN_PRIVATE_KEY }}
+          COSIGN_PASSWORD: ${{ secrets.COSIGN_PASSWORD }}
+          COSIGN_EXPERIMENTAL: "false"
