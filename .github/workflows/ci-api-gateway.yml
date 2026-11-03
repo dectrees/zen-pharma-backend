@@ -118,7 +118,7 @@ jobs:
             exit 0
           fi
           git commit -m "promote(qa): api-gateway → ${IMAGE_TAG}"
-          git push origin "$BRANCH"
+          git push origin "$BRANCH" --force
 
           printf '%s\n' \
             "## QA Promotion" \
