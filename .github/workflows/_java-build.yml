@@ -139,7 +139,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: java-sarif-report
-          path: ${{ github.workspace }}/../results/java.sarif
+          path: ${{ runner.workspace }}/results/java.sarif
 
       # ── Semgrep SAST ──────────────────────────────────────────────────────────
       - name: Semgrep SAST (java · owasp-top-ten)
