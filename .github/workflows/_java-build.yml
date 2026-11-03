@@ -135,6 +135,11 @@ jobs:
         uses: github/codeql-action/analyze@v3
         with:
           category: /language:java
+      - name: Upload SARIF as Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: java-sarif-report
+          path: ${{ github.workspace }}/results/java.sarif
 
       # ── Semgrep SAST ──────────────────────────────────────────────────────────
       - name: Semgrep SAST (java · owasp-top-ten)
