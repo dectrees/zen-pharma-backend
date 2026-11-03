@@ -139,7 +139,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: java-sarif-report
-          path: /home/runner/work/zen-pharma-backend/results/java.sarif
+          path: ../results/java.sarif
 
       # ── Semgrep SAST ──────────────────────────────────────────────────────────
       - name: Semgrep SAST (java · owasp-top-ten)
